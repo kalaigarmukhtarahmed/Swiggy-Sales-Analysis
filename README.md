@@ -1,94 +1,315 @@
 # 📊 Swiggy Sales Analytics
 
-A real-world **E-Commerce / Food Delivery Sales Analytics** project using **Python, Pandas, and NumPy**.  
-The project focuses on analyzing sales data and performing data-cleaning operations on a Swiggy sales dataset.
+A data analysis project based on one year of Swiggy sales data. The project focuses on cleaning a real-world sales dataset and extracting meaningful business insights using Python and Pandas.
 
 ---
 
 ## 📌 Project Overview
 
-This project demonstrates how Python and Pandas can be used to transform raw transactional data into meaningful business insights.
+The objective of this project is to understand how raw sales data can be cleaned, processed, and analyzed to answer business-related questions.
 
-The analysis includes:
+The project is divided into two major sections:
 
-- Product revenue analysis
-- Category-wise sales analysis
-- Average order value analysis
-- Missing-value detection
-- Duplicate-record detection
-- Data-type correction
-- Category standardization
-- Abnormal-value detection
+1. **Data Cleaning – Clean the Dirty Dataset**
+2. **E-Commerce Sales Analytics**
 
----
+A total of **9 questions** are addressed in this project.
 
-## 📂 Dataset
+The complete implementation and analysis are available in the Jupyter Notebook:
 
-The dataset contains one year of Swiggy sales transactions.
-
-### Dataset Columns
-
-| Column | Description |
-|---|---|
-| `Date` | Date of the order |
-| `Order ID` | Unique order identifier |
-| `Item Name` | Name of the food item |
-| `Category` | Food category |
-| `Quantity` | Quantity ordered |
-| `Item Price` | Price of the item |
-| `Discount` | Discount applied |
-| `GST` | GST amount |
-| `Delivery Charges` | Delivery charge |
-| `Customer Paid Amount` | Amount paid by customer |
-| `Net Sales` | Net sales amount |
-| `Payment Method` | Payment method used |
-| `Order Status` | Status of the order |
+**`Swiggy_Sales_Analysis.ipynb`**
 
 ---
 
-## 🛠️ Technologies Used
+# 📂 Dataset
+
+### Dataset Name
+
+**Swiggy Sales Dataset – 1 Year**
+
+### File
+
+`swiggy_sales_1_year.csv`
+
+### Dataset Features
+
+The dataset contains information related to:
+
+- Order Date
+- Order ID
+- Item Name
+- Category
+- Quantity
+- Item Price
+- Discount
+- GST
+- Delivery Charges
+- Customer Paid Amount
+- Net Sales
+- Payment Method
+- Order Status
+
+A Revenue field is derived from the sales information for performing revenue-based analysis.
+
+---
+
+# 🧹 Part 1: Clean the Dirty Dataset
+
+This section focuses on identifying and handling common data-quality problems.
+
+---
+
+## Q1. Missing Values
+
+### Question
+
+**Identify and handle missing values in the dataset, especially blank Price or Quantity values.**
+
+### Answer
+
+The dataset was checked for missing or blank values in all columns.
+
+**Result:**  
+No missing values were found in the dataset.
+
+Therefore, no missing-value replacement or removal was required.
+
+### Status
+
+✅ No missing values found
+
+---
+
+## Q2. Duplicate Records
+
+### Question
+
+**Identify duplicate records where the same order or record appears more than once.**
+
+### Answer
+
+The dataset was examined for duplicate records.
+
+Duplicate records can affect the accuracy of sales calculations because the same transaction may be counted more than once.
+
+**Result:**  
+Duplicate records were checked and handled during the data-cleaning process.
+
+### Status
+
+✅ Duplicate records checked
+
+---
+
+## Q3. Incorrect Data Types
+
+### Question
+
+**Identify columns where dates, prices, or quantities are stored in an incorrect data type and convert them into appropriate formats.**
+
+### Answer
+
+The data types of important columns were examined and corrected where necessary.
+
+- Date values were converted into an appropriate date format.
+- Item Price values were converted into numeric format.
+- Quantity values were converted into numeric format.
+
+This ensures that the dataset can be used correctly for calculations and analysis.
+
+### Status
+
+✅ Data types checked and corrected
+
+---
+
+## Q4. Inconsistent Categories
+
+### Question
+
+**Identify inconsistent category names such as `electronics` and `Electronics` and standardize them.**
+
+### Answer
+
+Category values were checked for differences in capitalization and unnecessary spaces.
+
+The category names were standardized into a consistent format.
+
+For example:
+
+- `electronics`
+- `Electronics`
+- ` electronics `
+
+are treated consistently after cleaning.
+
+### Status
+
+✅ Category values standardized
+
+---
+
+## Q5. Abnormal Values
+
+### Question
+
+**Identify abnormal values such as negative prices or Quantity equal to zero.**
+
+### Answer
+
+The dataset was checked for:
+
+- Negative item prices
+- Zero quantities
+- Other invalid sales-related values
+
+**Result:**  
+No negative item prices or zero-quantity records were found.
+
+Therefore, no abnormal records needed to be removed for these conditions.
+
+### Status
+
+✅ No abnormal price or quantity values found
+
+---
+
+# 📈 Part 2: E-Commerce Sales Analytics
+
+After cleaning the dataset, sales information was analyzed to answer business-related questions.
+
+---
+
+## Q1. Which Product Generates Maximum Revenue?
+
+### Question
+
+**Which product generates the maximum revenue?**
+
+### Answer
+
+The total revenue generated by each product was analyzed.
+
+🏆 **Chicken Tikka** generated the maximum revenue.
+
+### Result
+
+**Product:** Chicken Tikka  
+**Approximate Revenue:** ₹215,891
+
+### Business Insight
+
+Chicken Tikka is the highest revenue-generating product in the available dataset.
+
+---
+
+## Q2. Which Region Has Declining Sales?
+
+### Question
+
+**Which region has declining sales?**
+
+### Answer
+
+This analysis requires regional information in the dataset.
+
+The available Swiggy dataset does **not contain a Region column**. Therefore, regional sales trends cannot be calculated accurately from the current dataset.
+
+A Region column would be required to determine which region has declining sales.
+
+### Result
+
+**Cannot be determined from the available dataset.**
+
+### Reason
+
+❌ Region information is not available.
+
+> A region should not be artificially created because doing so could produce inaccurate business conclusions.
+
+---
+
+## Q3. Who Are the Top 10 Customers?
+
+### Question
+
+**Who are the top 10 customers based on revenue?**
+
+### Answer
+
+This analysis requires customer-identification information.
+
+The available Swiggy dataset does **not contain a Customer column**. Therefore, the top 10 customers cannot be identified from the current dataset.
+
+Order ID cannot be treated as Customer because an Order ID identifies an order, not a customer.
+
+### Result
+
+**Cannot be determined from the available dataset.**
+
+### Reason
+
+❌ Customer information is not available.
+
+> A Customer column would be required to perform this analysis accurately.
+
+---
+
+## Q4. Which Category Has the Highest Average Order Value?
+
+### Question
+
+**Which category has the highest average order value?**
+
+### Answer
+
+The average revenue/order value was calculated for each product category.
+
+🏆 **Starters** had the highest average order value.
+
+### Result
+
+**Category:** Starters  
+**Approximate Average Order Value:** ₹285.96
+
+### Business Insight
+
+Among the available categories, Starters generated the highest average order value.
+
+---
+
+# 📊 Project Results Summary
+
+| No. | Question | Answer / Result |
+|---|---|---|
+| 1 | Are there missing values? | No missing values found |
+| 2 | Are there duplicate records? | Duplicate records checked and handled |
+| 3 | Are there incorrect data types? | Data types checked and corrected |
+| 4 | Are there inconsistent categories? | Categories standardized |
+| 5 | Are there abnormal values? | No negative prices or zero quantities found |
+| 6 | Which product generates maximum revenue? | **Chicken Tikka – ₹215,891 approx.** |
+| 7 | Which region has declining sales? | **Cannot be determined – Region column unavailable** |
+| 8 | Who are the top 10 customers? | **Cannot be determined – Customer column unavailable** |
+| 9 | Which category has the highest average order value? | **Starters – ₹285.96 approx.** |
+
+---
+
+# 🛠️ Technologies Used
 
 - **Python**
 - **Pandas**
-- **NumPy**
 - **Google Colab**
 - **Jupyter Notebook**
+- **Git**
+- **GitHub**
 
 ---
 
-## 📈 Business Questions
+# 📁 Project Structure
 
-The project analyzes the following questions:
-
-### 1. Which product generates maximum revenue?
-
-Revenue is grouped by `Item Name` and the product with the highest total revenue is identified.
-
-**Result:**
-
-> Chicken Tikka
-
----
-
-### 2. Which region has declining sales?
-
-The original case study requires a `Region` column.
-
-However, the provided Swiggy dataset does not contain a `Region` column, so this question cannot be calculated from the available dataset.
-
----
-
-### 3. Who are the top 10 customers?
-
-The original case study requires a `Customer` column.
-
-The provided Swiggy dataset does not contain customer information, so this question cannot be calculated from the available dataset.
-
----
-
-### 4. Which category has the highest average order value?
-
-The average revenue is calculated for each food category.
-
-```python
-df.groupby("Category")["Revenue"].mean().idxmax()
+```text
+Swiggy-Sales-Analysis/
+│
+├── Swiggy_Sales_Analysis.ipynb
+├── swiggy_sales_1_year.csv
+└── README.md
