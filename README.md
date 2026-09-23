@@ -313,3 +313,13 @@ Swiggy-Sales-Analysis/
 ├── Swiggy_Sales_Analysis.ipynb
 ├── swiggy_sales_1_year.csv
 └── README.md
+```
+# 👨‍💻 Author
+
+**Kalaigar Mukhtar Ahmed**
+
+Computer Science and Engineering Student
+
+### 📄 License
+
+This project is created for educational and academic purposes.
